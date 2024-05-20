@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="slika1.jpg" alt="Slike" width="800" height="500" id="slika">
+    <br>
+    <button onclick="next()">Sledeca</button>
+    <button onclick="back()">Prethodna</button>
+    <button onclick="Slide()">Start</button>
+    <button onclick="Slidestop()">Stop</button>
+
+    <script>
+var slike = new Array();
+slike[0] = "image1.jpg";
+slike[1] = "image2.jpg";
+slike[2] = "image3.jpg";
+slike[3] = "image4.jpg";
+var trenutnaslika = 0;
+var ukupnoslika = slike.length;
+
+function next() {
+console.log('Proslo')
+trenutnaslika++;
+if(trenutnaslika == ukupnoslika) trenutnaslika = 0;
+document.getElementById("slika").src = slike[trenutnaslika];
+}
+function back() {
+trenutnaslika--;
+if(trenutnaslika == -1) ukupnoslika - 1;
+document.getElementById("slika").src = slike[trenutnaslika];
+}
+var timer;
+function Slide() {
+    timer = setInterval(next, 1000);
+}
+function Slidestop() {
+    clearInterval(timer);
+}
+
+
+
+
+    </script>
+</body>
+</html>
